@@ -1,0 +1,209 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(http://fonts.googleapis.com/css?family=Varela);
+
+@import "checkbox";
+
+.input {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 0 50px 0;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 38px;  
+}
+
+h1.page-title {
+  margin: 50px;
+  text-align: center;
+}
+
+#input-field {
+  width: 100%;
+}
+
+#list-controls {
+  padding: 0 0 100px 0;
+}
+
+.table-list {
+  margin: auto;
+  max-width: 800px;
+}
+
+#created, #clicks {
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.controls {
+  margin: auto;
+  padding: 20px 0 0 0;
+  width: 800px;
+}
+
+
+td {
+  white-space: nowrap;
+}
+
+tr {
+  border-left: 2px solid transparent;
+}
+
+tr:not(:nth-child(1)):hover {
+  background-color: rgb(255, 255, 204);
+  border-left: 2px solid rgba(85, 118, 224, 1);
+  cursor: default;
+}
+  
+.yellow {
+  background-color: rgb(255, 255, 204) ! important;
+  cursor: default;
+}
+
+tr:hover input.copy {
+ background-color: rgb(255, 255, 204); 
+}
+
+.sorted {
+  color: #e4540d;
+}
+
+input.copy {
+  border: none;
+  color: #295caa;
+  width: 160px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* IE "X" button verstecken */
+input.copy::-ms-clear {
+  display: none;
+}
+
+input.copy:focus {
+  outline: none;
+}
+
+input.copy:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.copy-note {
+  position: absolute;
+  margin: -21px 0 0 0;
+
+  background-color: #262626;
+  color: white;
+  font-size: 11px;
+  padding: 5px;
+  display: none;
+}
+
+.copy-note .arrow {
+  position: absolute;
+  margin: 1px 0 0 -12px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 4px 7px 4px 0;
+  border-color: transparent #262626 transparent transparent;
+}
+
+#remove, #reload {
+  float: left;
+}
+
+#reload {
+  position: relative;
+  left: 2px;
+}
+
+#logout, p#user {
+  float: right;
+}
+
+#user {
+  position: relative;
+  top: 8px;
+  right: 5px;
+  color: #7b7b7b;
+  font-style: italic;
+}
+
+.copyright {
+  color: #999999;
+  font-size: 12px;
+  float: right;
+  margin: 10px 0 0 0;
+}
+
+.modal-window {
+  position: absolute;
+  z-index: 999;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .message {
+    width: 300px;
+    box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin: 90px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+
+  .buttons {
+    margin: 20px 0 0 0;
+  }
+}
+
+.login {
+  margin: -1px auto;
+  width: 300px;
+  background-color: #f9f9f9;
+  border: 1px solid #e7e7e7;
+  padding: 30px;
+  border-radius: 2px;
+
+  input[type="text"], input[type="password"] {
+    margin: 5px 0 15px 0;
+  }
+
+  .buttons {
+    margin: 15px 0 0 0;
+
+    #submit, #create {
+      float: left;
+    }
+
+    #create-account, #cancel {
+      float: right;
+    }
+  }
+
+  p#new-account {
+    margin: 0 0 30px 0;
+  }
+  
+
+  .clearBoth {
+    clear: both;
+  }
+}
+
+

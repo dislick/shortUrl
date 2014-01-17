@@ -1,0 +1,18 @@
+{
+  "author": "Patrick Muff",
+  "name": "shortUrl",
+  "description": "URL Shortener für M223",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "underscore": "*",
+    "mongoose": "*"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-sass": "*"
+  }
+}
