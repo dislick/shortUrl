@@ -4,7 +4,7 @@
   "description": "URL Shortener für M223",
   "version": "0.0.1",
   "dependencies": {
-    "express": "*",
+    "express": "3.2",
     "underscore": "*",
     "mongoose": "*"
   },
