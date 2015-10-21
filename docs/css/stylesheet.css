@@ -1,0 +1,502 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Arimo);
+
+div#header {
+  width: 100%;
+  height: 900px;
+  background-image: url('../images/ocean.jpg');
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.logo {
+  width: 252px;
+  margin: auto;
+  text-align: center;
+}
+
+#logo {
+  width: 190px;
+}
+
+.logo p {
+  color: white;
+  margin: 20px 0 0 0;
+}
+
+.button {
+  border: 1px solid white;
+  width: 250px;
+  margin: auto;
+}
+
+.button p {
+  margin: 0;
+  padding: 13px 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+}
+
+#doku-ansehen {
+  position: relative;
+  top: 100px;
+  cursor: pointer;
+}
+
+#doku-ansehen:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#arrow-down {
+  position: relative;
+  top: 120px;
+  cursor: pointer;
+}
+
+a {
+  color: #ffabab ! important;
+}
+
+.doku-button {
+  position: relative;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+
+  -webkit-animation: ButtonFadeDown 1s;
+  -moz-animation: ButtonFadeDown 1s;
+  -ms-animation: ButtonFadeDown 1s;
+  -o-animation: ButtonFadeDown 1s;
+  animation: ButtonFadeDown 1s;
+
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes "ButtonFadeDown" {
+ 0% {
+    top: -30px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+ }
+ 100% {
+    top: 0px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+ }
+
+}
+
+@-moz-keyframes ButtonFadeDown {
+ 0% {
+   top: -30px;
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+ 100% {
+   top: 0px;
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
+}
+
+@-webkit-keyframes "ButtonFadeDown" {
+ 0% {
+   top: -30px;
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+ 100% {
+   top: 0px;
+   filter: alpha(opacity=100);
+   opacity: 1; 
+ }
+
+}
+
+@-ms-keyframes "ButtonFadeDown" {
+ 0% {
+   top: -30px;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+ 100% {
+   top: 0px;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
+}
+
+@-o-keyframes "ButtonFadeDown" {
+ 0% {
+   top: -30px;
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+ 100% {
+   top: 0px;
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
+}
+
+
+
+
+div#beschreibung {
+
+}
+
+.beschreibung {
+  width: 700px;
+  padding: 70px 0;
+  margin: auto;
+}
+
+.beschreibung p {
+  font-family: 'Arimo', 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+img#example {
+  position: relative;
+  left: -30px;
+}
+
+
+
+
+div#entwurfsmuster {
+  background-color: #2d2d2d;
+}
+
+.title {
+  padding: 50px 0;
+}
+
+#muster-title {
+  background-color: #3b3b3b;
+  margin: 0 0 50px 0;
+}
+
+.entwurfsmuster-entry {
+  margin: auto;
+  width: 700px;
+  padding: 0 0 30px 0;
+}
+
+.entwurfsmuster-entry td {
+  vertical-align: middle;
+}
+
+.entwurfsmuster-entry tr:hover {
+  background-color: #3b3b3b;
+  cursor: default;
+}
+
+.entwurfsmuster-entry .icon {
+  width: 130px;
+  height: 130px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-transition-duration: 0.5s;
+}
+
+.entwurfsmuster-entry .icon:hover {
+  
+}
+
+.entwurfsmuster-entry p {
+  color: white;
+  margin: 0 0 0 20px;
+}
+
+.entwurfsmuster-beschreibung {
+  width: 700px;
+  margin: auto;
+  padding: 30px 0 50px 0;
+}
+
+.entwurfsmuster-beschreibung p {
+  color: white;
+}
+
+
+
+
+div#api {
+  background-color: #2f4d84;
+}
+
+#api-title {
+  background-color: #385b99;
+  margin: 0 0 50px 0;
+}
+
+#api-content {
+  padding: 0 0 30px 0;
+}
+
+.route {
+  width: 700px;
+  margin: 25px auto;
+  background-color: #31518a;
+  padding: 0 0 5px 0;
+}
+
+.route:hover {
+  background-color: #385b99;
+}
+
+.route:hover .route-title {
+  background-color: #4168ae;
+}
+
+.route-title {
+  background-color: #385b99;
+  margin: 0 0 5px 0;
+}
+
+.route-title p {
+  color: white;
+  font-family: Consolas;
+  padding: 7px 10px;
+}
+
+.desc {
+  color: white;
+  padding: 5px 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearBoth {
+  clear: both;
+}
+
+pre.response {
+  color: white;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+table.parameter {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 5px 10px;
+}
+
+.parameter tr:nth-child(1) {
+  font-weight: bold;
+}
+
+.parameter td {
+  padding: 3px 10px 3px 3px;
+}
+
+
+
+
+
+div#uml {
+  background-color: #e2e2e2;
+}
+
+#uml-title {
+  background-color: #eeeeee;
+  margin: 0 0 50px 0;
+}
+
+#uml .button {
+  border: 1px solid #262626;
+}
+
+#uml .button p {
+  color: #262626;
+}
+
+#uml .content {
+  text-align: center;
+}
+
+.uml-bild {
+  margin: 0 0 60px 0;
+  max-width: 100%;
+}
+
+
+
+
+
+div#anleitung {
+  background-color: #842f2f;
+  padding: 0 0 5px 0;
+}
+
+#anleitung-title {
+  background-color: #a83c3c;
+}
+
+.step {
+  width: 700px;
+  margin: 50px auto;
+  padding: 10px 0;
+}
+
+.step:hover .circle {
+
+}
+
+.circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 100px;
+  background-color: white;
+  text-align: center;
+  position: relative;
+}
+
+.circle p {
+  position: relative;
+  top: 15px;
+  color: #842f2f ! important;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.table-step td {
+  padding: 0 20px 0 0;
+}
+
+.table-step td p {
+  color: white;
+}
+
+p.console {
+  position: relative;
+  left: -7px;
+  margin: 10px 0 0 0;
+  font-family: Consolas, monospace;
+}
+
+p.console:before {
+  position: relative;
+  left: -10px;
+  content: '$';
+  color: #bc6a6a;
+}
+
+
+
+
+
+div#arbeitsjournal {
+  background-color: #1d7463;
+  padding: 0 0 50px 0;
+}
+
+#arbeitsjournal-title {
+  background-color: #238e79;
+  margin: 0 0 50px 0;
+}
+
+.journal, .arbeitsjournal-text {
+  width: 700px;
+  margin: auto;
+}
+
+.journal td {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+.journal td.time {
+  width: 100px;
+  text-align: right;
+  padding: 0 10px 0 0;
+}
+
+.journal tr td:nth-child(1) {
+  text-align: center;
+  width: 40px;
+}
+
+.journal tr:nth-child(1) {
+  font-weight: bold;
+}
+
+.journal tr {
+  border-bottom: 1px solid #639f93;
+}
+
+.journal td {
+  padding: 15px 0;
+}
+
+.journal tr:not(:nth-child(1)):hover {
+  background-color: #318978;
+}
+
+.journal tr:nth-child(even) {
+  background-color: #1e7866;
+}
+
+.arbeitsjournal-text {
+  padding: 50px 0 0 0;
+}
+
+.arbeitsjournal-text p {
+  color: white;
+}
+
+
+
+
+div#footer {
+  background-color: #1d7463;
+  padding: 50px 0;
+}
+
+.foot {
+  width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.foot p {
+  color: #fff;
+  font-style: italic;
+  opacity: 0.6;
+}
+

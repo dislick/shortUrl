@@ -1,0 +1,602 @@
+<!doctype html>
+<html>
+<head>
+  <title>Dokumentation shortURL</title>
+  <!-- Frameworks -->
+  <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="css/muff.css">
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+  <!-- Meta Tags -->
+  <meta charset="utf-8"> 
+</head>
+<body class="overflow-hidden">
+
+  <script type="text/javascript">
+    $(function() {
+      var windowHeight = $(window).height();
+      $('#header').height(windowHeight);
+      $('.logo').css('padding-top', windowHeight / 2 - 100);
+
+      $('#doku-ansehen, #arrow-down').bind('click', function() {
+        $('html, body').animate({ scrollTop: windowHeight }, 500);
+      });
+    });
+  </script>
+
+  <div id="header">
+    <div class="logo">
+      <div class="doku-titel">
+        <img src="images/logo.png" id="logo" />
+        <p>Patrick Muff · M223 · Dezember 2013</p>
+      </div>
+      
+      <div class="doku-button">
+        <div class="button" id="doku-ansehen">
+          <p>Dokumentation ansehen</p>
+        </div>
+        <img src="images/v.png" id="arrow-down" />
+      </div>
+    </div>
+  </div>
+
+  <div id="beschreibung">
+    <div class="beschreibung">
+      <p>
+        shortURL ist eine Webapplikation, welche eine lange URL entgegennimmt und eine kurze Weiterleitungsurl daraus generiert. Solche URL Shortener werden häufig dort eingesetzt, wo man eine begrenzte Anzahl Zeichen zur Verfügung hat (Twitter, andere Social Networks). Die Applikation wurde komplett in JavaScript mittels Node und Backbone geschrieben.
+      </p>
+      <img src="images/example.png" id="example" />
+    </div>
+  </div>
+
+  <div id="entwurfsmuster">
+    <div class="title" id="muster-title">
+      <div class="button">
+        <p>Entwurfsmuster</p>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="entwurfsmuster-entry">
+        <table>
+          <tr>
+            <td>
+               <div class="icon" style="background-image: url('images/mvc.png')"></div>
+            </td>
+
+            <td>
+              <p><strong>MVC</strong>. Das Frontend der Applikation ist mit MVC (Model, View, Controller) strukturiert. Dafür verwendete ich das JavaScript Framework Backbone. Bekannte Alternativen wären AngluarJS und Knockout.</p>
+            </td>
+          </tr>
+        </table>        
+      </div>
+
+      <div class="entwurfsmuster-entry">
+        <table>
+          <tr>
+            <td>
+               <div class="icon" style="background-image: url('images/observer.png')"></div>
+            </td>
+
+            <td>
+              <p><strong>Observer</strong>. Das Observer Muster erlaubt es den Views sich bei einem Model zu registrieren. Sobald sich ein Model ändert, updated sich die View automatisch.</p>
+            </td>
+          </tr>
+        </table>        
+      </div>
+
+      <div class="entwurfsmuster-entry">
+        <table>
+          <tr>
+            <td>
+               <div class="icon" style="background-image: url('images/subview.png')"></div>
+            </td>
+
+            <td>
+              <p><strong>SubView</strong>. Mit dem SubView Muster für Backbone kann man sauber getrennte Views für GUI Objekte programmieren und sie dann über eine Main-View steuern.</p>
+            </td>
+          </tr>
+        </table>        
+      </div>
+
+      <div class="entwurfsmuster-entry">
+        <table>
+          <tr>
+            <td>
+               <div class="icon" style="background-image: url('images/module.png')"></div>
+            </td>
+
+            <td>
+              <p><strong>Module</strong>. Das Module Muster für Node erlaubt es, Code mittels JavaScript Closures in Module auszulagern. Dieses Muster wurde nur für den Server eingsetzt, da Node nicht auf dem Client läuft.</p>
+            </td>
+          </tr>
+        </table>        
+      </div>
+
+      <div class="entwurfsmuster-entry">
+        <table>
+          <tr>
+            <td>
+               <div class="icon" style="background-image: url('images/seperate-callbacks.png')"></div>
+            </td>
+
+            <td>
+              <p><strong>Seperate Callbacks</strong>. Mit Hilfe dieses Musters strukturiere ich die asynchronen Callbacks in JavaScript. Es geht darum, keine anonymen inline Funktionen zu verwenden, sondern diese auszulagern.</p>
+            </td>
+          </tr>
+        </table>        
+      </div>
+
+      <div class="entwurfsmuster-entry">
+        <table>
+          <tr>
+            <td>
+               <div class="icon" style="background-image: url('images/registry.png')"></div>
+            </td>
+
+            <td>
+              <p><strong>Registry</strong>. Dieses Muster vermeidet grosse If Else If und Switch Statements, in dem man das Problem mittels einer Hashtable löst. So können auch dynamisch neue Bedingungen hinzugefügt werden.</p>
+            </td>
+          </tr>
+        </table>        
+      </div>
+
+
+
+      <div class="entwurfsmuster-beschreibung">
+        <p><strong>Begründung</strong></p>
+        <br />
+        <p>
+          Anstelle von MVC hätte man für dieses Projekt auch MVVM oder ein anderes MV* Muster verwenden können, jedoch fand ich MVVM zu umfangreich für eine verhältnismässig kleine Applikation. Model-View-Controller gab mir eine gute Struktur in mein Projekt und eigentete sich sehr gut für eine reine AJAX Applikation.
+        </p><br />
+        <p>Das Observer Muster ist standardmässig in Backbone eingebaut und ich verwendete es in praktisch jeder View. Ich denke nicht, dass es hier grosse Alternativen gibt, denn der asynchrone Aufbau von JavaScript erlaubt fast nichts anderes.</p>
+        <br />
+        <p>Ein Muster, welches nicht direkt notwendig gewesen wäre, ist das SubView Muster. Man hätte es bei diesem Projekt auch weglassen können und hätte resultierend dann eine etwas grössere ListView gehabt. Mit weiteren Features würde diese dann aber zu gross werden und man muss sowieso auf das SubView Muster ausweichen, deshalb habe ich es vorsorgend bereits implementiert.</p>
+        <br />
+        <p>Das Module Muster für Node ist tief in der Sprache verankert, man muss es praktisch verwenden. Hier gäbe es RequireJS als Alternative, welches aber hauptsächlich für Browser Umgebungen gebaut wurde. Das eingebaute Modul System von Node ist für den Serverteil der Applikation besser geeignet.</p>
+        <br />
+        <p>Seperate Callbacks ist mehr eine JavaScript Guideline als ein Muster, aber es ich fand es mehrmals online als Entwurfsmuster aufgelistet, deshalb ist es in dieser Liste. Es geht wirklich nur darum, anonyme inline Funktionen in eine Variable auszulagern, um asynchronen Code so übersichtlich wie nur möglich darzustellen.</p>
+        <br />
+        <p>Wie bereits oben beschrieben, hilft das Registry Muster grosse If Else If Statements zu vermeiden. Dieses Muster finden Sie in diesem File implementiert: frontend/js/model/AccountCreationModel.js. Mit dem jetzigen Stand der Applikation hätte auch ein simples Switch Statement genügt, jedoch wollte ich sicher gehen, dass allfällige Erweiterungen einfach vorgenommen werden können.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="uml">
+    <div class="title" id="uml-title">
+      <div class="button">
+        <p>UML Diagramm</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <a href="images/uml.png" target="empty" title="Click to expand image">
+        <img src="images/uml.png" class="uml-bild" />
+      </a>
+    </div>
+  </div>
+
+  <div id="api">
+    <div class="title" id="api-title">
+      <div class="button">
+        <p>REST API</p>
+      </div>
+    </div>
+
+    <div class="content" id="api-content">
+      
+      <div class="route">
+        <div class="route-title">
+          <p class="left">GET /</p>
+          <p class="right">text/html</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Wenn ein User die Domain auf einem Browser aufruft, wird mittels dieser URL die Frontend Applikation geliefert.
+        </p>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">GET /:shortUrl</p>
+          <p class="right">Redirect</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Über diese URL entsteht die Weiterleitung an die Ziel-Seite. shortUrl ist ein 4-stellige Zeichenfolge.
+        </p>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">POST /login</p>
+          <p class="right">JSON</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Mit einem POST Request auf diese URL kann sich ein User einloggen.
+        </p>
+        <table class="parameter">
+          <tr>
+            <td>Parameter</td>
+            <td>Typ</td>
+            <td>Beschreibung</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>string</td>
+            <td>Die Email Adresse des Benutzers, der sich einloggen möchte.</td>
+          </tr>
+          <tr>
+            <td>password</td>
+            <td>string</td>
+            <td>Das dazugehörige Passwort.</td>
+          </tr>
+        </table>
+        <pre class="response">
+{
+  "status": "OK"
+}
+        </pre>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">GET /logout</p>
+          <p class="right">Redirect</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Über diese Url kann sich ein eingeloggter Benutzer abmelden. Seine Session wird hiermit zerstört und er muss sich erneut einloggen um die Applikation zu verwenden.
+        </p>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">POST /account/create</p>
+          <p class="right">JSON</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Wenn ein POST Request auf diese Url geschickt wird, kann ein neuer Account angelegt werden. Dabei ist wichtig, dass es sich um eine valide Email Addresse handelt und das Password über sechs Zeichen lang ist.
+        </p>
+        <table class="parameter">
+          <tr>
+            <td>Parameter</td>
+            <td>Typ</td>
+            <td>Beschreibung</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>string</td>
+            <td>Die Email Addresse, mit der sich der neue Benutzer künftig einloggen möchte.</td>
+          </tr>
+          <tr>
+            <td>password</td>
+            <td>string</td>
+            <td>Das vom Benutzer gewählte Passwort.</td>
+          </tr>
+        </table>
+        <pre class="response">
+{
+  "status": "OK"
+}
+        </pre>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">GET /account/currentUser</p>
+          <p class="right">JSON</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Mittels dieser Route wird die Email Addresse des eingeloggten Benutzers zurückgegeben. Ist kein User  eingeloggt, wird HTTP Status 401 geschickt.
+        </p>
+        <pre class="response">
+{
+  "email": "steve.jobs@apple.com"
+}
+        </pre>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">GET /links/all</p>
+          <p class="right">JSON</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Über diese URL können die neusten gekürzten Links abgerufen werden. Es wird ein Array mit maximal 50 Links zurückgegeben, sortiert nach Datum.
+        </p>
+        <pre class="response">
+[
+  {
+    "url": "https://www.google.ch/search?q=fda&tag=245rjk4js4k5tjs5kew",
+    "shortUrl": "2fSN",
+    "added": "2013-12-28T23:46:24.548Z",
+    "clicks": 0
+  },
+  {
+    "url": "https://www.yahoo.com/images/test",
+    "shortUrl": "werY",
+    "added": "2013-12-28T23:46:24.548Z",
+    "clicks": 3
+  }
+]
+        </pre>
+      </div>
+
+       <div class="route">
+        <div class="route-title">
+          <p class="left">POST /links/add</p>
+          <p class="right">JSON</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Mit einem POST Request auf diese URL können neue Links hinzugefügt werden.
+        </p>
+        <table class="parameter">
+          <tr>
+            <td>Parameter</td>
+            <td>Typ</td>
+            <td>Beschreibung</td>
+          </tr>
+          <tr>
+            <td>url</td>
+            <td>string</td>
+            <td>Die URL, die gekürzt werden soll.</td>
+          </tr>
+        </table>
+        <pre class="response">
+{
+  "shortUrl": "2fSN"
+}
+        </pre>
+      </div>
+
+      <div class="route">
+        <div class="route-title">
+          <p class="left">POST /links/remove</p>
+          <p class="right">JSON</p>
+          <div class="clearBoth"></div>
+        </div>
+        <p class="desc">
+          Mit einem POST Request auf diese URL können bestehende Links gelöscht werden. Diese Links können nicht mehr aufgerufen werden und alle Statistiken werden gelöscht.
+        </p>
+        <table class="parameter">
+          <tr>
+            <td>Parameter</td>
+            <td>Typ</td>
+            <td>Beschreibung</td>
+          </tr>
+          <tr>
+            <td>shortUrl</td>
+            <td>string</td>
+            <td>Die Short URL, die gelöscht werden soll. Beispiel: xs4V</td>
+          </tr>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div id="anleitung">
+     <div class="title" id="anleitung-title">
+      <div class="button">
+        <p>Installationsanleitung</p>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="step">
+        <table class="table-step">
+          <tr>
+            <td>
+              <div class="circle"><p>∞</p></div>
+            </td>
+            <td>
+              <p><strong>Überspringen</strong></p><br />
+              <p>Sie müssen den Server nicht zwingend auf Ihrem Computer aufsetzen, die Applikation ist auch über diese URL aufrufbar: <a href="http://short.eu01.aws.af.cm/">http://short.eu01.aws.af.cm/</a>.</p><br />
+              <p>Diese Seite wird von <a href="https://www.appfog.com/">AppFog</a> gehosted, einem relativ neuem Startup Unternehmen, welches spezielles Web Hosting für Node, Java, Ruby, Python und PHP anbietet.</p>
+            </td>
+          </tr>
+        </table>  
+      </div>
+      
+      <div class="step">
+        <table class="table-step">
+          <tr>
+            <td>
+              <div class="circle"><p>1</p></div>
+            </td>
+            <td>
+              <p><strong>Installation von Node</strong></p><br />
+              <p>Installieren Sie <a href="http://nodejs.org/">NodeJS</a> auf ihrem Computer. Stellen Sie bei der Installation sicher, dass sie “Add To Path” angewählt haben, ansonsten können sie den Befehl “node” in der Konsole nicht verwenden.</p>
+            </td>
+          </tr>
+        </table>  
+      </div>
+
+      <div class="step">
+        <table class="table-step">
+          <tr>
+            <td>
+              <div class="circle"><p>2</p></div>
+            </td>
+            <td>
+              <p><strong>3rd Party Extensions installieren</strong></p><br />
+              <p>Öffnen Sie die Konsole (cmd.exe) und navigieren Sie in das Verzeichnis der Applikation (wo die Datei app.js liegt). Führen Sie diesen Befehl in der Konsole aus:</p>
+              <p class="console">npm install</p>
+            </td>
+          </tr>
+        </table>  
+      </div>
+
+      <div class="step">
+        <table class="table-step">
+          <tr>
+            <td>
+              <div class="circle"><p>3</p></div>
+            </td>
+            <td>
+              <p><strong>MongoDB installieren</strong></p><br />
+              <p>Die Applikation verwendet eine NoSQL Datenbank. Laden Sie <a href="http://www.mongodb.org/downloads">MongoDB</a> herunter und entpacken sie das ZIP-File nach C:\MongoDB\.</p><br />
+              <p>Erstellen Sie nun folgendes Verzeichnis: C:\MongoDB\bin\data\db\. MongoDB ist nun installiert. In Schritt 5 starten wir sie.</p>
+            </td>
+          </tr>
+        </table>  
+      </div>
+
+      <div class="step">
+        <table class="table-step">
+          <tr>
+            <td>
+              <div class="circle"><p>4</p></div>
+            </td>
+            <td>
+              <p><strong>[Optional] Source Files mit Grunt kompilieren</strong></p><br />
+              <p>Dieser Schritt ist optional, denn in der mitgegebenen Applikation wurden die nötigen Dateien bereits erstellt. Wenn Sie es selber machen möchten, führen Sie folgende Befehle aus:</p>
+              <p class="console">npm install -g grunt grunt-cli</p>
+              <br />
+              <p>Installieren Sie nun <a href="http://sass-lang.com/">Ruby und SASS</a>. SASS ist ein CSS Precompiler, welcher ich verwendet habe. Danach können Sie mit diesem Befehl die nötigen Dateien kompilieren:</p>
+              <p class="console">grunt</p>
+            </td>
+          </tr>
+        </table>  
+      </div>
+
+      <div class="step">
+        <table class="table-step">
+          <tr>
+            <td>
+              <div class="circle"><p>5</p></div>
+            </td>
+            <td>
+              <p><strong>Ausführen</strong></p><br />
+              <p>Öffnen Sie zwei cmd.exe Fenster. Im ersten Fenster führen Sie die MongoDB aus:</p>
+              <p class="console">C:\MongoDB\bin\mongod.exe -dbpath data/db</p>
+              <br />
+              <p>Und im zweiten Fenster navigieren Sie in das Verzeichnis der Applikation und starten sie, indem Sie die Datei app.js mit Node öffnen:</p>
+              <p class="console">node app.js</p>
+              <br />
+              <p>In der Konsole steht jetzt die URL, die Sie im Browser aufrufen müssen. Standardmässig lautet die URL <a href="http://localhost:1122">http://localhost:1122</a></p>
+            </td>
+          </tr>
+        </table>  
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="arbeitsjournal">
+   <div class="title" id="arbeitsjournal-title">
+    <div class="button">
+      <p>Arbeitsjournal</p>
+    </div>
+   </div>
+
+   <div class="content">
+     
+    <table class="journal">
+      <tr>
+        <td>#</td>
+        <td>Task</td>
+        <td class="time">Geschätzte Zeit</td>
+        <td class="time">Benötigte Zeit</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Datenbank Schema erstellen</td>
+        <td class="time">10min</td>
+        <td class="time">10min</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>RESTful API umsetzen</td>
+        <td class="time">2h</td>
+        <td class="time">2h 10min</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Module Muster recherchieren / anwenden</td>
+        <td class="time">30min</td>
+        <td class="time">1h</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Seperate Callbacks Muster anwenden</td>
+        <td class="time">20min</td>
+        <td class="time">30min</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Frontend HTML/CSS erstellen</td>
+        <td class="time">1h</td>
+        <td class="time">3h</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Frontend MVC realisieren</td>
+        <td class="time">6h</td>
+        <td class="time">8h</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>SubView Muster anwenden</td>
+        <td class="time">2h</td>
+        <td class="time">2h</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Dokumentation</td>
+        <td class="time">1h</td>
+        <td class="time">6h</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Login / Registrierung</td>
+        <td class="time">3h</td>
+        <td class="time">3h</td>
+      </tr>
+    </table>
+
+    <div class="arbeitsjournal-text">
+      <p><strong>Resumé</strong></p><br />
+      <p>
+        Ich habe für diese Arbeit knapp 26 Stunden benötigt. Ich wusste bereits einiges über prototypen-basiertes Programmieren in JavaScript, doch mit dieser Arbeit konnte ich mein Wissen noch mehr vertiefen. Ich fand das SubView Muster sehr interessant und werde es bestimmt auch in Zukunft anwenden, da es kleine, kompakte Views schafft, ohne Funktionalität oder Performance zu verlieren.
+      </p>
+      <br />
+      <p>
+        Ich unterschätzte den Zeitaufwand für die simple HTML und CSS Struktur der Applikation und benötigte deshalb 2 Stunden mehr für diesen Task. Schlussendlich endstand aus dem Design mein persönliches CSS Framework, welches ich von nun an verwende um meine Applikationen zu designen. Für diese Dokumentation benötigte ich auch mehr Zeit, da ich mich vom Word-Format abwendete und die Dokumentation als HTML-Dokument kreierte.
+      </p>
+      <br />
+      <p>
+        Grosse Probleme hatte ich keine, jedoch hatte ich ein kleines Problem mit den Checkboxen, mit denen man Links löschen kann. Der Event Handler, den ich auf die Tabellen-Reihe gestetzt habe, löste bei einem Klick zwei Events aus. Der User konnte also die Checkbox gar nicht anwählen, da er sie sofort wieder abgewählt hat. Dies löste ich, indem ich eine Pseudo-Checkbox kreierte. Jedes Mal, wenn der User die Checkbox anwählt, wird auf dem entsprechenden ListEntryModel eine Membervariable gesetzt. Über das Observer-Muster updated sich die dazugehörige SubView automatisch, und der Eintrag wird neu gerendert und ist jetzt angewählt.
+      </p>
+      <br />
+      <p>Eine Woche vor Abgabetermin war ich fertig mit der Arbeit und der Dokumentation. Dann baute ich noch ein Login System ein, damit Benutzer nicht alle Links sehen kann, sondern nur die, die sie selber gekürzt haben. Dies dauerte noch etwa 3 Stunden (inklusive Design der Views). Danach erweiterte ich noch die Dokumentation mit dem neuen UML Diagramm und updatete die API Dokumentation. </p>
+      <br />
+      <p>Ich finde solche Projekte wie dieses in der Schule sehr gut, meistens lerne ich bei diesen mehr, als im normalen Unterricht. In solch einer Arbeit kann man genau das umsetzen, was einem gefällt. So arbeitet man viel motivierter und gibt sich auch mehr Mühe. Sie sollten diese Entwurfsmuster Vertiefungsarbeit auch im nächsten Jahr mit Schülern, die jetzt im 3. Lehrjahr sind, durchführen.</p>
+    </div>
+
+   </div>
+  </div>
+
+  <div id="footer">
+    <div class="foot">
+      <p>© 2014 by Patrick Muff</p>
+    </div>
+  </div>
+
+</body>
+</html>
